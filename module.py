@@ -43,7 +43,7 @@ class DeconvolutionDecoder(nn.Module):
 
 	def forward(self, z):
 		# reshape for deconvolution layer
-		z.unsqueeze_(-1).unsqueeze_(-1)
+		z = z.unsqueeze(-1).unsqueeze(-1)
 
 		h2 = self.relu(self.deconv1(z))
 		h1 = self.relu(self.deconv2(h2))
